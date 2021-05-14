@@ -125,10 +125,11 @@ int main(){
         p[i] = rand() % 10 + 1;
     }
 
-    Algorithm a(p,n);
+    Algorithm a;
+    a.write(p, n);
     a.read();
     Bombelkowe b;
-    //b.sortt();
+    b.sortt();
 
     system("pause");
 

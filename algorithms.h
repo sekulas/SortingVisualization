@@ -8,15 +8,13 @@ using namespace std;
 
 class Algorithm 
 {
-    protected:
+    public:
         int t[1000];
         int maxx;
         int n;
         void visualize(int, int); 
         void find_maximum();
-
-    public:
-        Algorithm(int temp[], int num)
+        void write(int temp[], int num)
         {
             n=num;
             for(int i = 0; i < n; i++)
@@ -28,7 +26,7 @@ class Algorithm
         }
 };
 
-class Bombelkowe :protected Algorithm
+class Bombelkowe :public Algorithm
 {
     public:
         void sortt();
