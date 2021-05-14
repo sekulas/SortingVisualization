@@ -4,4 +4,4 @@ project(learning)
 
 #file(GLOB_RECURSE sources CONFIGURE_DEPENDS "*n.cpp")
 
-add_executable(${PROJECT_NAME} main.cpp algorithms.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
