@@ -60,9 +60,29 @@ void wybieranie(int t[])
 /*
 void wstawianie();
 void scalanie();
-void qsort();
 void kubelkowe();
 */
+void qsort(int t[],int l, int r){
+    int left = l; int right = r;
+    int pivot = t[(l + r)/2];
+    int i = left;
+    int j = right;
+
+    while(1){
+        while(pivot > t[i++]);
+        while(pivot < t[j--]);
+        vizualize(j, i, t);
+        if(i <= j) swap(t[i],t[j]);
+        else break;
+    }
+
+    if(j > left)
+    qsort(t, left, j);
+    if(i < right)
+    qsort(t, i, right);
+
+}
+
 void find_maximum(int t[]) //szukanie maksymalnej wartości w tablicy t
 {
     int tempmax=0;
@@ -73,14 +93,15 @@ void find_maximum(int t[]) //szukanie maksymalnej wartości w tablicy t
 
 
 
-void menu(int x, int t[]){
+void menu(int x, int t[], int r){
     // wybór algorytmu sortowania przy włączniu programu
     if(x == 1) bombelkowe(t);
     else if(x == 2) wybieranie(t);
+    else if(x == 5) qsort(t, 0,  r);
     /*
     else if(x == 3) wstawianie();
     else if(x == 4) scalanie();
-    else if(x == 5) qsort();
+    
     else kubelkowe();
     */
 }
@@ -99,5 +120,5 @@ int main(){
         p[i] = rand() % 10 + 1;
     }
     find_maximum(p);    
-    menu(choice,p);
+    menu(choice,p, n);
 }
