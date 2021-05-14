@@ -4,8 +4,10 @@
 #include <cstdio>
 #include <ctime>
 #include "windows.h"
+#include "algorithms.h"
 using namespace std;
 
+/*
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); //obsługa kolorów
 
 int n, maxx, choice;
@@ -57,11 +59,11 @@ void wybieranie(int t[])
         swap(t[wsk],t[mini]);
     }
 }
-/*
+
 void wstawianie();
 void scalanie();
 void kubelkowe();
-*/
+
 void qsort(int t[],int l, int r){
     int left = l; int right = r;
     int pivot = t[(l + r)/2];
@@ -103,22 +105,36 @@ void menu(int x, int t[], int r){
     else if(x == 4) scalanie();
     
     else kubelkowe();
-    */
+    
 }
 
-int main(){
-    SetConsoleTextAttribute(hConsole,15);
-    cout << "Jakie sortowanko?\n1.Bombelkowe\n2.Przez Wybor\n3.Przez Wstawianie\n4.Przez Scalanie\n5.QSort\n6.Sortowanie Kubelkowe\n: ";
-    cin >> choice;
+*/
 
+int main(){
+    
+   //SetConsoleTextAttribute(hConsole,15);
+   // cout << "Jakie sortowanko?\n1.Bombelkowe\n2.Przez Wybor\n3.Przez Wstawianie\n4.Przez Scalanie\n5.QSort\n6.Sortowanie Kubelkowe\n: ";
+   // cin >> choice;
+    int n;
     cout << "Dlugosc tablicy: ";
     cin >> n;
-    int p[n]; 
+    int p[100]; 
 
     srand(time(NULL));
     for(int i = 0; i < n; i++){
         p[i] = rand() % 10 + 1;
     }
+
+    Algorithm a(p,n);
+    a.read();
+    Bombelkowe b;
+    //b.sortt();
+
+    system("pause");
+
+/*
+    
     find_maximum(p);    
     menu(choice,p, n);
+*/
 }
